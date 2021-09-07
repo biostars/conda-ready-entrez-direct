@@ -6,7 +6,7 @@ Bioconda ready entrez-direct
 
 ### Rationale
 
-The official entrez-direct install script connects to the internet to download certain software, and with that breaks the bioconda install.
+The official entrez-direct install script connects to the internet to download certain software, and that process is not compatible with the bioconda install.
 
 This repository prepackages entrez-direct to contain all code inside the repository.
 
