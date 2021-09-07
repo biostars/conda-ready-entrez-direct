@@ -6,7 +6,7 @@ Bioconda ready entrez-direct
 
 ### Rationale
 
-The official entrez-direct install script connects to the internet to download the binary component. Connecting to the internet during installation is not allowed during the  bioconda install process as it is a security risk (and makes auditing code impossible).
+The official entrez-direct install script connects to the internet to download the binary component. Connecting to the internet during the bioconda installation is not allowed as it is a security risk and makes it impossible to check code hashes.
 
 This repository prepackages entrez-direct to contain all code inside the repository.
 
