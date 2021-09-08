@@ -12,9 +12,9 @@ case "$osname-$cputype" in
 esac
 
 # Unpack platform specific binary
-gunzip -c xtract."$platform".gz > xtract."$platform"
-gunzip -c rchive."$platform".gz > rchive."$platform"
-gunzip -c transmute."$platform".gz > transmute."$platform"
+gunzip -c xtract.$plt.gz > xtract.$plt
+gunzip -c rchive.$plt.gz > rchive.$plt
+gunzip -c transmute.$plt.gz > transmute.$plt
 
 # Set executable flag.
-chmod +x xtract."$platform" rchive."$platform" transmute."$platform"
+chmod +x xtract.$plt rchive.$plt transmute.$plt

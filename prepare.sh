@@ -23,6 +23,9 @@ DIST=$URL/versions/$VERSION/$FNAME
 
 echo **** Preparing: $MAJOR $MINOR $DATE
 
+# Remove build directory if it exists
+rm -f build
+
 # The build directory
 mkdir -p build
 
@@ -35,12 +38,12 @@ wget -nc $DIST
 tar xzvf $FNAME
 
 # Fetch the binaries
-echo Darwin Silicon Linux ARM | xargs -I {} -n 1 wget -nc https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/xtract.{}.gz
-echo Darwin Silicon Linux ARM | xargs -I {} -n 1 wget -nc https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/rchive.{}.gz
-echo Darwin Silicon Linux ARM | xargs -I {} -n 1 wget -nc https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/transmute.{}.gz
+cat ../platforms.txt | xargs -I {} -n 1 wget -nc https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/xtract.{}.gz
+cat ../platforms.txt  | xargs -I {} -n 1 wget -nc https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/rchive.{}.gz
+cat ../platforms.txt | xargs -I {} -n 1 wget -nc https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/transmute.{}.gz
 
 # Move the files into the archive
-cp -f xtract.* rchive.* transmute.* edirect/
+mv -f xtract.* rchive.* transmute.* edirect/
 
 # Copy the new install script to edirect.
 cp -f ../install.sh edirect
@@ -61,5 +64,3 @@ cat dist/$FNAME | shasum -a 256 > dist/$FNAME.shasum
 git add -f dist/$FNAME
 git add -f dist/$FNAME.shasum
 
-# Remove the build directory
-rm -rf build
