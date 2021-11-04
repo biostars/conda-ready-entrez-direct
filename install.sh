@@ -5,17 +5,16 @@ osname=`uname -s`
 cputype=`uname -m`
 
 case "$osname-$cputype" in
-  Linux-x86_64 )           platform=Linux ;;
-  Darwin-x86_64 )          platform=Darwin ;;
-  CYGWIN_NT-* | MINGW*-* ) platform=CYGWIN_NT ;;
-  Linux-*arm* )            platform=ARM ;;
-  * )                      platform=UNSUPPORTED ;;
+  Linux-x86_64 )           plt=Linux ;;
+  Darwin-x86_64 )          plt=Darwin ;;
+  Darwin-*arm* )           plt=Silicon ;;
+  Linux-*arm* )            plt=ARM ;;
 esac
 
 # Unpack platform specific binary
-gunzip -c xtract."$platform".gz > xtract
-gunzip -c rchive."$platform".gz > rchive
-gunzip -c transmute."$platform".gz > transmute
+gunzip -c xtract.$plt.gz > xtract.$plt
+gunzip -c rchive.$plt.gz > rchive.$plt
+gunzip -c transmute.$plt.gz > transmute.$plt
 
 # Set executable flag.
-chmod +x xtract rchive transmute
+chmod +x xtract.$plt rchive.$plt transmute.$plt

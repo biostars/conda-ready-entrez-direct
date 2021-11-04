@@ -2,13 +2,19 @@
 
 Bioconda ready entrez-direct
 
-* https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/
-
 ### Rationale
 
-The official entrez-direct install script connects to the internet to download certain software, and with that breaks the bioconda install.
+The official entrez-direct install script connects to the internet to download the binary component. Connecting to the internet during the bioconda installation is not allowed as it is a security risk and makes it impossible to validate archive hashes.
 
-This repository prepackages entrez-direct to contain all code inside the repository.
+This repository repackages entrez-direct to contain all code inside the repository.
+
+Official distribution URL for Entrez Direct
+
+* https://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/
+
+The Entrez Direct manual:
+
+* https://www.ncbi.nlm.nih.gov/books/NBK179288/
 
 ### Usage
 
