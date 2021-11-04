@@ -3,7 +3,7 @@ set -ue
 #
 # Usage: bash prepare 15.6.20210906
 #
-VERSION=15.6.20210906
+VERSION=$1
 
 arr=(${VERSION//./ })
 
