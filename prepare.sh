@@ -1,4 +1,4 @@
-set -ue
+set -uxe
 
 #
 # Usage: bash prepare 15.6.20210906
@@ -24,7 +24,7 @@ DIST=$URL/versions/$VERSION/$FNAME
 echo **** Preparing: $MAJOR $MINOR $DATE
 
 # Remove build directory if it exists
-rm -f build
+rm -rf build
 
 # The build directory
 mkdir -p build
